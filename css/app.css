@@ -1,0 +1,32 @@
+body{
+   font-family: 'Roboto', sans-serif;
+}
+
+.centerNav {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    /* margin-right: 200px; */
+}
+
+li{
+    margin: 0 5px;
+}
+
+.white{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+.align{
+    margin-left: 30px;
+}
+
+#rotationAngle{
+    width: 40%; 
+    margin: 0 auto;
+}
+
+#rotationAngleOutput{
+    margin-left: 50%;
+}

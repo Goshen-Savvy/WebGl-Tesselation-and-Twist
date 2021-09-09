@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Assignment 2</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="Common/webgl-utils.js"></script>
+  <script type="text/javascript" src="Common/initShaders.js"></script>
+  <script type="text/javascript" src="Common/MV.js"></script>
+  <script type="text/javascript" src="js/triangle.js"></script>
+
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+
+  <script type="text/javascript" src="js/app.js"></script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="centerNav">
+    <div class="navbar-header">
+        <div class="">
+            <a class="navbar-brand" href="#">WebGL Tessellation & Twist</a>
+        </div>
+    </div>
+    <!-- <div class="centerNav"> -->
+        <ul class="nav navbar-nav">
+        <li><button type="button" class="btn btn-success" onclick="sectionOne()">Solution One</button></li>
+        <li><button type="button" class="btn btn-primary" onclick="sectionTwo()">Solution Two</button></li>
+        <li class="dropdown"><button type="button" class="dropdown-toggle btn btn-info" data-toggle="dropdown" onclick="sectionThree()">Solution Three <span class="caret"></span>		</button>
+            <ul class="dropdown-menu">
+                <div class="col-md-6 col-md-offset-3 mb-5 white" id="polygonOptions">
+                    <li><button type="button" class="btn white" onclick="square()">Square</button></li>
+                    <li><button type="button" class="btn white" onclick="pentagon()">Pentagon</button></li>
+                    <li><button type="button" class="btn white" onclick="hexagon()">Hexagon</button></li>
+                    <li><button type="button" class="btn white" onclick="octagon()">Octagon</button></li>
+                </div>
+            </ul>
+        </li>
+        <li class="dropdown"><button type="button" class="dropdown-toggle btn btn-danger" data-toggle="dropdown" onclick="sectionFour()">Solution Four <span class="caret"></span>		</button>
+            <ul class="dropdown-menu">
+                <div class="col-md-6 col-md-offset-3 mb-5 white" id="polygonOptions">
+                    <li><button type="button" class="btn white" onclick="square()">Square</button></li>
+                    <li><button type="button" class="btn white" onclick="pentagon()">Pentagon</button></li>
+                    <li><button type="button" class="btn white" onclick="hexagon()">Hexagon</button></li>
+                    <li><button type="button" class="btn white" onclick="octagon()">Octagon</button></li>
+                </div>
+            </ul>
+        </li>
+        <li class="dropdown"><button type="button" class="dropdown-toggle btn btn-warning" data-toggle="dropdown" onclick="sectionFive()">Solution Five <span class="caret"></span>		</button>
+            <ul class="dropdown-menu">
+                <div class="col-md-6 col-md-offset-3 mb-5 white" id="polygonOptions">
+                    <li><button type="button" class="btn white" id="myBtn" onclick="triangle()">Triangle</button></li>
+                    <li><button type="button" class="btn white" onclick="square()">Square</button></li>
+                    <li><button type="button" class="btn white" onclick="pentagon()">Pentagon</button></li>
+                    <li><button type="button" class="btn white" onclick="hexagon()">Hexagon</button></li>
+                    <li><button type="button" class="btn white" onclick="octagon()">Octagon</button></li>
+                </div>  
+            </ul>
+        </li>
+        <li><button type="button" class="btn btn-success" onclick="InitDemo()">Solution Six</button></li>
+        </ul>
+    <!-- </div> -->
+  </div>
+</nav>
+  
+<div class="container">
+  
+    <canvas id="webgl-canvas" class="center-block" width="350" height="350">
+        Oops ... your browser doesn't support the HTML5 canvas element
+      </canvas>
+      <div class="row center-block">
+        <div class="col-md-6 col-md-offset-3">
+          
+          <div class="checkbox text-center">
+            <label>
+              <input type="checkbox" data-toggle="toggle" id="tessellated">Tessellation
+            </label>
+            <!-- <h3 class="text-center">Tessellation</h3> -->
+          </div>
+        </div>
+        <br />
+        <div class="col-md-6 col-md-offset-3" id="rotationSet">
+          <h3 style="font-size: 14px;" class="text-center">Rotate & Twist</h3>
+          <input id="rotationAngle" name="angle" type="range" min="-180" max="180" step="1" value="0" />
+          <output id="rotationAngleOutput" type="text">0</output>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <script id="vertex-shader" type="x-shader/x-vertex">
+    attribute vec4 vPosition;
+    varying vec4 fColor;
+
+    void main()
+    {
+      fColor = vec4((1.0+vPosition)/2.0);
+      gl_Position = vPosition;
+    }
+    </script>
+    <script id="fragment-shader" type="x-shader/x-fragment">
+    precision mediump float;
+  
+    varying vec4 fColor;
+  
+    void
+    main(){
+      gl_FragColor = fColor;
+    }
+    </script>
+  <br />
+
+</div>
+
+</body>
+</html>
